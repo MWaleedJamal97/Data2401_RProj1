@@ -1,13 +1,17 @@
 ---
 title: "R Project 1 - Hello R"
-author: "Muhammad Waleed Jamal"
+author: "*Muhammad Waleed Jamal*"
 date: "9/16/2020"
-output: html_document
+output: 
+  html_document: 
+    toc: yes
+    toc_depth: 4
+    fig_width: 10
+    fig_height: 10
 ---
 
-MAKE SURE YOU READ AND FOLLOW **ALL** INSTRUCTIONS ON THE INSTRUCTION DOCUMENT. 
 
-### Load packages
+### Loading the packages
 
 ```{r load-packages, message=FALSE}
 library(tidyverse) 
@@ -15,7 +19,7 @@ library(datasauRus)
 ```
 
 
-### Exercise 1
+## Exercise 1
 ```
 A data frame with 1846 rows and 3 variables:
 
@@ -25,7 +29,8 @@ x: x-values
 
 y: y-values
 ```
-### Exercise 2
+## Exercise 2
+### The Big Dinosaur 
 ```{r plot-dino, fig.height=3, fig.width=6}
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
@@ -40,11 +45,9 @@ dino_data %>%
 ```
 
 
-### Exercise 3
+## Exercise 3
 
-
-(Add code and narrative as needed. Note that the R chunks are labeled with `plot-star` and `cor-star` to provide spaces to place the code for plotting and calculating the correlation coefficient. To finish, remember to clean up the narrative by removing these instructions.)
-
+### This plots a star on the graph. 
 
 
 ```{r plot.stars, fig.height=4,fig.width=7}
@@ -59,9 +62,9 @@ ggplot(data=dino_data,mapping=aes(x=x,y=y))+
 dino_data %>%
   summarize(r=cor(x,y ))
 ```
-### Exercise 4
+## Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+### This is a circle plot.
 ```{r plot.circles, fig.height=15, fig.width=8}
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "circle")
@@ -78,7 +81,9 @@ dino_data %>%
 
 
 
-### Exercise 5
+## Exercise 5
+
+### This code plots graphs from each different dataset
 ```{r plot}
 ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
 geom_point()+
