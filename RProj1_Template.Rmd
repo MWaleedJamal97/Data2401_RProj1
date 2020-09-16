@@ -47,32 +47,33 @@ dino_data %>%
 
 
 
-```{r plot-star}
-
+```{r plot.stars, fig.height=4,fig.width=7}
+dino_data <- datasaurus_dozen %>%
+  filter(dataset == "star")
+ggplot(data=dino_data,mapping=aes(x=x,y=y))+
+  geom_point()
 
 ```
 
-I'm some text, you should replace me with more meaningful text...
- 
 ```{r cor-star}
-
-
+dino_data %>%
+  summarize(r=cor(x,y ))
 ```
-
 ### Exercise 4
 
 (Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
 
-```{r}
-
-
-```
 
 ```{r}
-
-
 ```
+
+
+
 
 ### Exercise 5
-
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, with the green +C.)
+```{r plot}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+geom_point()+
+facet_wrap(~ dataset, ncol = 3) + # facet the dataset variable, in 3 cols
+theme(legend.position = "none")
+```
